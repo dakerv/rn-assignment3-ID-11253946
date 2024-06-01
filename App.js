@@ -71,6 +71,16 @@ export default function App() {
             <Text style = {styles.ongoingText}> Ongoing </Text>
         </View>
 
+          
+          <View style = {styles.finalBoxes}>
+            <Text style= {styles.finalBoxesTexts}> Mobile App Development </Text>
+          </View>
+
+          <View style = {styles.finalBoxes}>
+            <Text style= {styles.finalBoxesTexts}> Web Development </Text>
+          </View>
+          
+
       </ScrollView>
     </View>
   );
@@ -214,7 +224,26 @@ const styles = StyleSheet.create({
       marginTop: 3,
       fontWeight: 700,
       fontSize: 24,
+  },
+
+  finalBoxes: {
+    flexDirection: "column",
+    width: 354,
+    height: 128,
+    borderRadius: 16,
+    borderWidth: 1,
+    marginTop: 12,
+    backgroundColor: "white",
+    borderColor: "#E8D1BA",
 
   },
+
+  finalBoxesTexts: {
+    paddingTop: 50,
+    paddingLeft: 20,
+    fontWeight: "500",
+    fontSize: 24,
+
+  }
 
 });
