@@ -13,6 +13,17 @@ const presentationImage = require("./Images/presentation_icon.jpeg");
 const groupMeetingImage = require("./Images/group_meeting.png");
 const quizImage = require("./Images/taking_quiz.jpeg");
 
+const categories = [
+  { key: '1', title: 'Exercise', tasks: '12 Tasks', image: exerciseImage },
+  { key: '2', title: 'Study', tasks: '12 Tasks', image: studyImage },
+  { key: '3', title: 'Code', tasks: '1 Task', image: codeImage },
+  { key: '4', title: 'Assignment', tasks: '7 Tasks', image: assignmentImage },
+  { key: '5', title: 'Project', tasks: '3 Tasks', image: projectImage },
+  { key: '6', title: 'Presentation', tasks: '5 Tasks', image: presentationImage },
+  { key: '7', title: 'Group Meeting', tasks: '8 Tasks', image: groupMeetingImage },
+  { key: '8', title: 'Quiz', tasks: '3 Tasks', image: quizImage },
+];
+
 const ongoingTasks = [
   { key: '1', title: 'Mobile App Development' },
   { key: '2', title: 'Web Development' },
@@ -37,6 +48,14 @@ const renderOngoingTask = ({ item }) => (
   </View>
 );
 
+const renderCategory = ({ item }) => (
+  <View style={styles.categoriesBoxes}>
+    <Text style={styles.bigText}>{item.title}</Text>
+    <Text style={styles.littleText}>{item.tasks}</Text>
+    <Image source={item.image} style={styles.imagesFormat} />
+  </View>
+);
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -56,7 +75,7 @@ export default function App() {
             <View style={styles.searchImage}>
               <Image source={searchImageIcon} />
             </View>
-            <Text style={styles.searchText}>Search</Text>
+            <Text style={styles.searchText}>Search </Text>
           </View>
           <View style={styles.filterImage}>
             <Image source={filter} />
@@ -68,57 +87,13 @@ export default function App() {
         </View>
 
         <View>
-          <ScrollView horizontal={true}>
-            <View style={styles.categoriesFrame}>
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Exercise</Text>
-                <Text style={styles.littleText}>12 Tasks</Text>
-                <Image source={exerciseImage} style={styles.imagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Study</Text>
-                <Text style={styles.littleText}>12 Tasks</Text>
-                <Image source={studyImage} style={styles.imagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Code</Text>
-                <Text style={styles.littleText}>1 Task</Text>
-                <Image source={codeImage} style={styles.biggerImagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Assignment</Text>
-                <Text style={styles.littleText}>7 Tasks</Text>
-                <Image source={assignmentImage} style={styles.biggerImagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Project</Text>
-                <Text style={styles.littleText}>3 Tasks</Text>
-                <Image source={projectImage} style={styles.biggerImagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Presentation</Text>
-                <Text style={styles.littleText}>5 Tasks</Text>
-                <Image source={presentationImage} style={styles.biggerImagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Group Meeting</Text>
-                <Text style={styles.littleText}>8 Tasks</Text>
-                <Image source={groupMeetingImage} style={styles.biggerImagesFormat} />
-              </View>
-
-              <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Quiz</Text>
-                <Text style={styles.littleText}>3 Tasks</Text>
-                <Image source={quizImage} style={styles.biggerImagesFormat} />
-              </View>
-            </View>
-          </ScrollView>
+          <FlatList
+            data={categories}
+            renderItem={renderCategory}
+            horizontal={true}
+            keyExtractor={item => item.key}
+            contentContainerStyle={styles.categoriesFrame}
+          />
         </View>
 
         <View>
@@ -126,7 +101,8 @@ export default function App() {
         </View>
 
         <View>
-          <FlatList style={{ height: 300 }}
+          <FlatList
+            style={{ height: 300 }}
             data={ongoingTasks}
             renderItem={renderOngoingTask}
             keyExtractor={item => item.key}
@@ -201,6 +177,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
+    
   },
 
   searchText: {
@@ -228,28 +205,21 @@ const styles = StyleSheet.create({
   },
 
   categoriesFrame: {
-    width: 1650,
-    height: 220,
+    height: 250,
     marginTop: 5,
-    flexDirection: 'row',
   },
 
   categoriesBoxes: {
     width: 186,
-    height: 200,
+    height: 210,
     borderRadius: 16,
     backgroundColor: 'white',
     marginRight: 20,
   },
 
   imagesFormat: {
-    flex: 1,
-    alignSelf: 'center',
-  },
-
-  biggerImagesFormat: {
-    width: 170,
-    height: 133,
+    width: 130,
+    height: 140,
     borderRadius: 16,
     flexBasis: 135,
     alignSelf: 'center',
