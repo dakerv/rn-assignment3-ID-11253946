@@ -1,26 +1,48 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-native';
+
 const devImage = require("./Images/person.png");
 const searchImageIcon = require("./Images/mynaui_search.png");
 const filter = require("./Images/Filter.png");
-const studyImage = require ("./Images/young woman working at desk.png")
-const exerciseImage = require ("./Images/young woman working online.png");
+const studyImage = require("./Images/young woman working at desk.png");
+const exerciseImage = require("./Images/young woman working online.png");
+const codeImage = require("./Images/code.jpeg");
+const assignmentImage = require("./Images/Assignment.jpeg");
+const projectImage = require ("./Images/project.png")
+const presentationImage = require ("./Images/presentation_icon.jpeg")
+const groupMeetingImage = require ("./Images/group_meeting.png")
+const quizImage = require ("./Images/taking_quiz.jpeg")
+
+const ongoingTasks = [
+  { key: '1', title: 'Mobile App Development' },
+  { key: '2', title: 'Web Development' },
+  { key: '3', title: 'Software Engineering' },
+  { key: '4', title: 'Data Structures and Algorithms' },
+  { key: '5', title: 'Information Modeling' },
+];
+
+const renderOngoingTask = ({ item }) => (
+  <View style={styles.finalBoxes}>
+    <Text style={styles.finalBoxesTexts}>{item.title}</Text>
+  </View>
+);
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ScrollView>
+
+      
         <View style={styles.helloDevsFrame}>
+
           <View>
-            <Text style={styles.helloDevs}>Hello, Devs</Text>
-            <Text style={styles.todayTasks}>14 tasks today</Text>
+            <Text style={styles.helloDevs}> Hello , Devs </Text>
+            <Text style={styles.todayTasks}> 14 tasks today </Text>
           </View>
+
           <View style={styles.circle}>
             <Image source={devImage} style={styles.devImageStyle} />
           </View>
         </View>
-
-
 
         <View style={styles.searchBoxFrame}>
           <View style={styles.searchBox}>
@@ -41,26 +63,53 @@ export default function App() {
         <View>
           <ScrollView horizontal={true}>
             <View style={styles.categoriesFrame}>
-              
-              <View style={styles.exerciseBox}>
-                <Text style= {styles.bigText}>
-                  Exercise
-                </Text>
-                <Text style= {styles.littleText}>
-                    12 Tasks
-                  </Text>
-                  <Image source={exerciseImage}
-                  style= {styles.imagesFormat} />
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Exercise</Text>
+                <Text style={styles.littleText}>12 Tasks</Text>
+                <Image source={exerciseImage} style={styles.imagesFormat} />
               </View>
 
-              <View style={styles.studyBox}>
-                <Text style= {styles.bigText}>
-                  Study </Text>
-                <Text style= {styles.littleText}>
-                    12 Tasks
-                </Text>
-                <Image source={studyImage}
-                style= {styles.imagesFormat} />
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Study</Text>
+                <Text style={styles.littleText}>12 Tasks</Text>
+                <Image source={studyImage} style={styles.imagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Code </Text>
+                <Text style={styles.littleText}>1 Task</Text>
+                <Image source={codeImage} style={styles.biggerImagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Assignment </Text>
+                <Text style={styles.littleText}>7 Tasks</Text>
+                <Image source={assignmentImage} style={styles.biggerImagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Project </Text>
+                <Text style={styles.littleText}>3 Tasks</Text>
+                <Image source={projectImage} style={styles.biggerImagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Presentation </Text>
+                <Text style={styles.littleText}>5 Tasks</Text>
+                <Image source={presentationImage} style={styles.biggerImagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Group Meeting </Text>
+                <Text style={styles.littleText}>8 Tasks</Text>
+                <Image source={groupMeetingImage} style={styles.biggerImagesFormat} />
+              </View>
+
+              <View style={styles.categoriesBoxes}>
+                <Text style={styles.bigText}>Quiz </Text>
+                <Text style={styles.littleText}>3 Tasks</Text>
+                <Image source={quizImage} style={styles.biggerImagesFormat} />
               </View>
 
             </View>
@@ -68,37 +117,16 @@ export default function App() {
         </View>
 
         <View>
-            <Text style = {styles.ongoingText}> Ongoing Tasks </Text>
+          <Text style={styles.ongoingText}> Ongoing Tasks </Text>
         </View>
+        
 
-          <View>
-          <ScrollView>
-          
-          <View style = {styles.finalBoxes}>  
-            <Text style= {styles.finalBoxesTexts}> Mobile App Development </Text>
-          </View>
+        <FlatList
+          data={ongoingTasks}
+          renderItem={renderOngoingTask}
+          keyExtractor={item => item.key}
+        />
 
-          <View style = {styles.finalBoxes}>
-            <Text style= {styles.finalBoxesTexts}> Web Development </Text>
-          </View>
-
-          <View style = {styles.finalBoxes}>
-            <Text style= {styles.finalBoxesTexts}> Software Engineering </Text>
-          </View>
-
-          <View style = {styles.finalBoxes}>
-            <Text style= {styles.finalBoxesTexts}> Data Structures and Algorithms </Text>
-          </View>
-
-          <View style = {styles.finalBoxes}>
-            <Text style= {styles.finalBoxesTexts}> Information Modeling </Text>
-          </View>
-
-          </ScrollView>
-          </View>
-          
-
-      </ScrollView>
     </View>
   );
 };
@@ -110,12 +138,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 10,
     paddingRight: 10,
-  
   },
 
   helloDevsFrame: {
     marginTop: 50,
-    marginLeft: 8,
+    marginLeft: 2,
     marginRight: 10,
     width: 354,
     height: 54,
@@ -123,15 +150,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-
-  circle: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'white',
-    borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   helloDevs: {
@@ -149,6 +167,15 @@ const styles = StyleSheet.create({
   devImageStyle: {
     width: 46,
     height: 45,
+  },
+
+  circle: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'white',
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   searchBoxFrame: {
@@ -170,13 +197,14 @@ const styles = StyleSheet.create({
   },
 
   searchText: {
-    fontSize: 23,
-    fontWeight: 700,
-    marginLeft: 13,
+    fontSize: 18,
+    fontWeight: 800,
+    marginLeft: 8,
+    color: "gray"
   },
 
   searchImage: {
-    marginLeft: 2,
+    marginLeft: 20,
     marginRight: 10, 
   },
 
@@ -193,13 +221,13 @@ const styles = StyleSheet.create({
   },
 
   categoriesFrame: {
-    width: 396,
+    width: 1750,
     height: 220,
     marginTop: 5,
     flexDirection: 'row', 
   },
 
-  exerciseBox: {
+  categoriesBoxes: {
     width: 186,
     height: 200,
     borderRadius: 16,
@@ -207,17 +235,26 @@ const styles = StyleSheet.create({
     marginRight: 20, 
   },
 
-  studyBox: {
+  imagesFormat: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 30,
+  },
+
+  biggerImagesFormat: {
     width: 186,
-    height: 200,
+    height: 133,
     borderRadius: 16,
-    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    
   },
 
   bigText: {
     margin: 10,
     fontSize: 24,
     fontWeight: 700,
+    
   },
 
   littleText: {
@@ -225,10 +262,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     fontWeight: 500,
     fontSize: 15,
-  },
-
-  imagesFormat: {
-    flex: 1
+    
   },
 
   ongoingContainer: {
@@ -239,11 +273,11 @@ const styles = StyleSheet.create({
   },
 
   ongoingText: {
-      color: "black",
-      marginTop: 8,
-      fontWeight: 700,
-      fontSize: 24,
-      marginBottom: 5
+    color: "black",
+    marginTop: 8,
+    fontWeight: 700,
+    fontSize: 24,
+    marginBottom: 5
   },
 
   finalBoxes: {
@@ -256,7 +290,6 @@ const styles = StyleSheet.create({
     marginTop: 25,
     backgroundColor: "white",
     borderColor: "#E8D1BA",
-
   },
 
   finalBoxesTexts: {
@@ -264,7 +297,5 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     fontWeight: "700",
     fontSize: 20,
-
   }
-
 });
