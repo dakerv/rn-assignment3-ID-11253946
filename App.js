@@ -20,6 +20,8 @@ export default function App() {
           </View>
         </View>
 
+        
+
         <View style={styles.searchBoxFrame}>
           <View style={styles.searchBox}>
             <View style={styles.searchImage}>
