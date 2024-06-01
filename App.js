@@ -62,8 +62,8 @@ export default function App() {
       <ScrollView>
         <View style={styles.helloDevsFrame}>
           <View>
-            <Text style={styles.helloDevs}> Hello , Devs </Text>
-            <Text style={styles.todayTasks}> 14 tasks today </Text>
+            <Text style={styles.helloDevs}>Hello , Devs </Text>
+            <Text style={styles.todayTasks}>14 tasks today </Text>
           </View>
           <View style={styles.circle}>
             <Image source={devImage} style={styles.devImageStyle} />
