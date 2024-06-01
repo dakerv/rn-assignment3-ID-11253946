@@ -19,6 +19,16 @@ const ongoingTasks = [
   { key: '3', title: 'Software Engineering' },
   { key: '4', title: 'Data Structures and Algorithms' },
   { key: '5', title: 'Information Modeling' },
+  { key: '6', title: 'Data Mining'},
+  { key: '7', title: 'Information Visualization'},
+  { key: '8', title: 'Programming'},
+  { key: '9', title: 'Web App Development'},
+  { key: '10', title: 'Basic Electronics'},
+  { key: '11', title: 'Network studies'},
+  { key: '12', title: 'Artificial Intelligence'},
+  { key: '13', title: 'Mathematics'},
+  { key: '14', title: 'Machine Learning'},
+  { key: '15', title: 'Cybersecurity'},
 ];
 
 const renderOngoingTask = ({ item }) => (
@@ -236,25 +246,19 @@ const styles = StyleSheet.create({
   },
 
   imagesFormat: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 30,
+    flex: 1,
   },
 
   biggerImagesFormat: {
     width: 186,
     height: 133,
     borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    
   },
 
   bigText: {
     margin: 10,
     fontSize: 24,
     fontWeight: 700,
-    
   },
 
   littleText: {
