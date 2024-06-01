@@ -68,16 +68,33 @@ export default function App() {
         </View>
 
         <View>
-            <Text style = {styles.ongoingText}> Ongoing </Text>
+            <Text style = {styles.ongoingText}> Ongoing Tasks </Text>
         </View>
 
+          <View>
+          <ScrollView>
           
-          <View style = {styles.finalBoxes}>
+          <View style = {styles.finalBoxes}>  
             <Text style= {styles.finalBoxesTexts}> Mobile App Development </Text>
           </View>
 
           <View style = {styles.finalBoxes}>
             <Text style= {styles.finalBoxesTexts}> Web Development </Text>
+          </View>
+
+          <View style = {styles.finalBoxes}>
+            <Text style= {styles.finalBoxesTexts}> Software Engineering </Text>
+          </View>
+
+          <View style = {styles.finalBoxes}>
+            <Text style= {styles.finalBoxesTexts}> Data Structures and Algorithms </Text>
+          </View>
+
+          <View style = {styles.finalBoxes}>
+            <Text style= {styles.finalBoxesTexts}> Information Modeling </Text>
+          </View>
+
+          </ScrollView>
           </View>
           
 
@@ -93,15 +110,17 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 10,
     paddingRight: 10,
+  
   },
 
   helloDevsFrame: {
-    marginTop: 40,
+    marginTop: 50,
     marginLeft: 8,
     marginRight: 10,
     width: 354,
     height: 54,
-    padding: 5,
+    paddingleft: 10,
+    paddingRight: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -133,7 +152,7 @@ const styles = StyleSheet.create({
   },
 
   searchBoxFrame: {
-    marginTop: 45,
+    marginTop: 32,
     width: 360,
     height: 49,
     padding: 5,
@@ -167,8 +186,8 @@ const styles = StyleSheet.create({
 
   categories: {
     color: "black",
-    marginTop: 50,
-    marginBottom: 10,
+    marginTop: 30,
+    marginBottom: 20,
     fontWeight: 700,
     fontSize: 24,
   },
@@ -221,18 +240,20 @@ const styles = StyleSheet.create({
 
   ongoingText: {
       color: "black",
-      marginTop: 3,
+      marginTop: 8,
       fontWeight: 700,
       fontSize: 24,
+      marginBottom: 5
   },
 
   finalBoxes: {
     flexDirection: "column",
+    flexWrap: "wrap",
     width: 354,
     height: 128,
     borderRadius: 16,
     borderWidth: 1,
-    marginTop: 12,
+    marginTop: 25,
     backgroundColor: "white",
     borderColor: "#E8D1BA",
 
@@ -241,8 +262,8 @@ const styles = StyleSheet.create({
   finalBoxesTexts: {
     paddingTop: 50,
     paddingLeft: 20,
-    fontWeight: "500",
-    fontSize: 24,
+    fontWeight: "700",
+    fontSize: 20,
 
   }
 
