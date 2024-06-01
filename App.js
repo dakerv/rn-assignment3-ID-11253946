@@ -8,10 +8,10 @@ const studyImage = require("./Images/young woman working at desk.png");
 const exerciseImage = require("./Images/young woman working online.png");
 const codeImage = require("./Images/code.jpeg");
 const assignmentImage = require("./Images/Assignment.jpeg");
-const projectImage = require ("./Images/project.png")
-const presentationImage = require ("./Images/presentation_icon.jpeg")
-const groupMeetingImage = require ("./Images/group_meeting.png")
-const quizImage = require ("./Images/taking_quiz.jpeg")
+const projectImage = require("./Images/project.png");
+const presentationImage = require("./Images/presentation_icon.jpeg");
+const groupMeetingImage = require("./Images/group_meeting.png");
+const quizImage = require("./Images/taking_quiz.jpeg");
 
 const ongoingTasks = [
   { key: '1', title: 'Mobile App Development' },
@@ -19,16 +19,16 @@ const ongoingTasks = [
   { key: '3', title: 'Software Engineering' },
   { key: '4', title: 'Data Structures and Algorithms' },
   { key: '5', title: 'Information Modeling' },
-  { key: '6', title: 'Data Mining'},
-  { key: '7', title: 'Information Visualization'},
-  { key: '8', title: 'Programming'},
-  { key: '9', title: 'Web App Development'},
-  { key: '10', title: 'Basic Electronics'},
-  { key: '11', title: 'Network studies'},
-  { key: '12', title: 'Artificial Intelligence'},
-  { key: '13', title: 'Mathematics'},
-  { key: '14', title: 'Machine Learning'},
-  { key: '15', title: 'Cybersecurity'},
+  { key: '6', title: 'Data Mining' },
+  { key: '7', title: 'Information Visualization' },
+  { key: '8', title: 'Programming' },
+  { key: '9', title: 'Web App Development' },
+  { key: '10', title: 'Basic Electronics' },
+  { key: '11', title: 'Network studies' },
+  { key: '12', title: 'Artificial Intelligence' },
+  { key: '13', title: 'Mathematics' },
+  { key: '14', title: 'Machine Learning' },
+  { key: '15', title: 'Cybersecurity' },
 ];
 
 const renderOngoingTask = ({ item }) => (
@@ -40,15 +40,12 @@ const renderOngoingTask = ({ item }) => (
 export default function App() {
   return (
     <View style={styles.container}>
-
-      
+      <ScrollView>
         <View style={styles.helloDevsFrame}>
-
           <View>
             <Text style={styles.helloDevs}> Hello , Devs </Text>
             <Text style={styles.todayTasks}> 14 tasks today </Text>
           </View>
-
           <View style={styles.circle}>
             <Image source={devImage} style={styles.devImageStyle} />
           </View>
@@ -73,7 +70,6 @@ export default function App() {
         <View>
           <ScrollView horizontal={true}>
             <View style={styles.categoriesFrame}>
-
               <View style={styles.categoriesBoxes}>
                 <Text style={styles.bigText}>Exercise</Text>
                 <Text style={styles.littleText}>12 Tasks</Text>
@@ -87,41 +83,40 @@ export default function App() {
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Code </Text>
+                <Text style={styles.bigText}>Code</Text>
                 <Text style={styles.littleText}>1 Task</Text>
                 <Image source={codeImage} style={styles.biggerImagesFormat} />
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Assignment </Text>
+                <Text style={styles.bigText}>Assignment</Text>
                 <Text style={styles.littleText}>7 Tasks</Text>
                 <Image source={assignmentImage} style={styles.biggerImagesFormat} />
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Project </Text>
+                <Text style={styles.bigText}>Project</Text>
                 <Text style={styles.littleText}>3 Tasks</Text>
                 <Image source={projectImage} style={styles.biggerImagesFormat} />
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Presentation </Text>
+                <Text style={styles.bigText}>Presentation</Text>
                 <Text style={styles.littleText}>5 Tasks</Text>
                 <Image source={presentationImage} style={styles.biggerImagesFormat} />
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Group Meeting </Text>
+                <Text style={styles.bigText}>Group Meeting</Text>
                 <Text style={styles.littleText}>8 Tasks</Text>
                 <Image source={groupMeetingImage} style={styles.biggerImagesFormat} />
               </View>
 
               <View style={styles.categoriesBoxes}>
-                <Text style={styles.bigText}>Quiz </Text>
+                <Text style={styles.bigText}>Quiz</Text>
                 <Text style={styles.littleText}>3 Tasks</Text>
                 <Image source={quizImage} style={styles.biggerImagesFormat} />
               </View>
-
             </View>
           </ScrollView>
         </View>
@@ -129,17 +124,19 @@ export default function App() {
         <View>
           <Text style={styles.ongoingText}> Ongoing Tasks </Text>
         </View>
+
+        <View>
+          <FlatList style={{ height: 300 }}
+            data={ongoingTasks}
+            renderItem={renderOngoingTask}
+            keyExtractor={item => item.key}
+          />
+        </View>
         
-
-        <FlatList
-          data={ongoingTasks}
-          renderItem={renderOngoingTask}
-          keyExtractor={item => item.key}
-        />
-
+      </ScrollView>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -163,14 +160,14 @@ const styles = StyleSheet.create({
   },
 
   helloDevs: {
-    color: "black",
-    fontWeight: "800",
+    color: 'black',
+    fontWeight: '800',
     fontSize: 32,
   },
 
   todayTasks: {
-    color: "black",
-    fontWeight: "500",
+    color: 'black',
+    fontWeight: '500',
     fontSize: 12,
   },
 
@@ -194,28 +191,28 @@ const styles = StyleSheet.create({
     height: 49,
     padding: 5,
     flexDirection: 'row',
-    alignItems: 'center', 
+    alignItems: 'center',
   },
 
   searchBox: {
     width: 280,
     height: 48,
     borderRadius: 14,
-    backgroundColor: "white",
-    flexDirection: 'row', 
-    alignItems: 'center', 
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   searchText: {
     fontSize: 18,
     fontWeight: 800,
     marginLeft: 8,
-    color: "gray"
+    color: 'gray',
   },
 
   searchImage: {
     marginLeft: 20,
-    marginRight: 10, 
+    marginRight: 10,
   },
 
   filterImage: {
@@ -223,7 +220,7 @@ const styles = StyleSheet.create({
   },
 
   categories: {
-    color: "black",
+    color: 'black',
     marginTop: 30,
     marginBottom: 20,
     fontWeight: 700,
@@ -234,25 +231,28 @@ const styles = StyleSheet.create({
     width: 1750,
     height: 220,
     marginTop: 5,
-    flexDirection: 'row', 
+    flexDirection: 'row',
   },
 
   categoriesBoxes: {
     width: 186,
     height: 200,
     borderRadius: 16,
-    backgroundColor: "white",
-    marginRight: 20, 
+    backgroundColor: 'white',
+    marginRight: 20,
   },
 
   imagesFormat: {
     flex: 1,
+    alignSelf: 'center',
   },
 
   biggerImagesFormat: {
-    width: 186,
+    width: 170,
     height: 133,
     borderRadius: 16,
+    flexBasis: 135,
+    alignSelf: 'center',
   },
 
   bigText: {
@@ -266,7 +266,6 @@ const styles = StyleSheet.create({
     marginTop: -10,
     fontWeight: 500,
     fontSize: 15,
-    
   },
 
   ongoingContainer: {
@@ -277,29 +276,29 @@ const styles = StyleSheet.create({
   },
 
   ongoingText: {
-    color: "black",
+    color: 'black',
     marginTop: 8,
     fontWeight: 700,
     fontSize: 24,
-    marginBottom: 5
+    marginBottom: 5,
   },
 
   finalBoxes: {
-    flexDirection: "column",
-    flexWrap: "wrap",
+    flexDirection: 'column',
+    flexWrap: 'wrap',
     width: 354,
     height: 128,
     borderRadius: 16,
     borderWidth: 1,
     marginTop: 25,
-    backgroundColor: "white",
-    borderColor: "#E8D1BA",
+    backgroundColor: 'white',
+    borderColor: '#E8D1BA',
   },
 
   finalBoxesTexts: {
     paddingTop: 50,
     paddingLeft: 20,
-    fontWeight: "700",
+    fontWeight: '700',
     fontSize: 20,
-  }
+  },
 });
