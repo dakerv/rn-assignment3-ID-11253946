@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   helloDevsFrame: {
-    marginTop: 20,
+    marginTop: 40,
     marginLeft: 8,
     marginRight: 10,
     width: 354,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   searchBoxFrame: {
-    marginTop: 134,
+    marginTop: 45,
     width: 360,
     height: 49,
     padding: 5,
@@ -157,7 +157,8 @@ const styles = StyleSheet.create({
 
   categories: {
     color: "black",
-    marginTop: 70,
+    marginTop: 50,
+    marginBottom: 10,
     fontWeight: 700,
     fontSize: 24,
   },
