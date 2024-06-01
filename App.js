@@ -20,7 +20,7 @@ export default function App() {
           </View>
         </View>
 
-        
+
 
         <View style={styles.searchBoxFrame}>
           <View style={styles.searchBox}>
@@ -65,6 +65,10 @@ export default function App() {
 
             </View>
           </ScrollView>
+        </View>
+
+        <View>
+            <Text style = {styles.ongoingText}> Ongoing </Text>
         </View>
 
       </ScrollView>
@@ -195,5 +199,21 @@ const styles = StyleSheet.create({
 
   imagesFormat: {
     flex: 1
-  }
+  },
+
+  ongoingContainer: {
+    width: 120,
+    height: 24,
+    fontSize: 20,
+    marginTop: 200,
+  },
+
+  ongoingText: {
+      color: "black",
+      marginTop: 3,
+      fontWeight: 700,
+      fontSize: 24,
+
+  },
+
 });
