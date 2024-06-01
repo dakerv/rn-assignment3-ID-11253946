@@ -24,7 +24,7 @@ const ongoingTasks = [
   { key: '8', title: 'Programming' },
   { key: '9', title: 'Web App Development' },
   { key: '10', title: 'Basic Electronics' },
-  { key: '11', title: 'Network studies' },
+  { key: '11', title: 'Network Studies' },
   { key: '12', title: 'Artificial Intelligence' },
   { key: '13', title: 'Mathematics' },
   { key: '14', title: 'Machine Learning' },
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
 
   categoriesFrame: {
-    width: 1750,
+    width: 1650,
     height: 220,
     marginTop: 5,
     flexDirection: 'row',
